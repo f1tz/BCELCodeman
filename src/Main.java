@@ -12,16 +12,21 @@ import java.nio.file.Paths;
 public class Main {
     public static void main(String[] args) {
         String helpMsg = "---------Example---------\n"
-                        + "Decode:\n"
-                        + "java -jar BCELCodeman.jar d [BCEL_CODE]\n"
-                        + "Encode:\n"
-                        + "java -jar BCELCodeman.jar e [Class_Filepath]\n\n"
-                        + "  -=Coding By F1tz=-";
+                + "Decode from string in args:\n"
+                + "java -jar BCELCodeman.jar d [BCEL_CODE]\n"
+                + "Decode from file path:\n"
+                + "java -jar BCELCodeman.jar df [BCEL_Filepath]\n"
+                + "Encode:\n"
+                + "java -jar BCELCodeman.jar e [Class_Filepath]\n\n"
+                + "  -=Coding By F1tz=-";
         try{
             switch (args[0]){
                 case "d" :
                     String bcelCode = args[1];
                     decode(bcelCode);
+                    break;
+                case "df" :
+                    decode(new String(Files.readAllBytes(Paths.get(args[1]))));
                     break;
                 case "e" :
                     String classPath = args[1];
@@ -31,8 +36,8 @@ public class Main {
                     System.out.println(helpMsg);
             }
         }catch (Exception e){
+            e.printStackTrace();
             System.out.println(helpMsg);
-            return;
         }
     }
 
