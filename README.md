@@ -11,12 +11,12 @@
 > 使用Decode功能会自动在当前目录下生成**Decoded.class**, 由于BCEL编码存在$符号，请使用***单引号***对代码进行包裹
 
 ```shell
-
-Decode:
+Decode from string in args:
 java -jar BCELCodeman.jar d [BCEL_CODE]
+Decode from file path:
+java -jar BCELCodeman.jar df [BCEL_Filepath]
 Encode:
 java -jar BCELCodeman.jar e [Class_Filepath]
-
 ```
 
 ![命令行使用示例](./screenshot/jar_example.png)
